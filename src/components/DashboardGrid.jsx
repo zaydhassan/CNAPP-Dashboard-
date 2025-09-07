@@ -3,6 +3,7 @@ import WidgetCard from "./WidgetCard.jsx";
 import MultiSegmentDonutChart from "./MultiSegmentDonutChart.jsx";
 import BarIndicator from "./BarIndicator.jsx";
 import NoDataPlaceholder from "./NoDataPlaceholder.jsx";
+import Topbar from "./Topbar.jsx";
 
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -206,6 +207,10 @@ export default function DashboardGrid() {
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredWidgets, setFilteredWidgets] = useState(allPossibleWidgets);
 
+    function handleSearchChange(e) {
+    setSearchTerm(e.target.value);
+    }
+
   function openAddWidgetModal(categoryId) {
     setCurrentCategory(categoryId);
     setSearchTerm("");
@@ -265,6 +270,7 @@ export default function DashboardGrid() {
 
   return (
     <>
+     
       <ToastContainer position="top-right" autoClose={1800} />
       <h1 className="text-3xl font-bold mb-6">CNAPP Dashboard</h1>
       {sections.map((category) => (

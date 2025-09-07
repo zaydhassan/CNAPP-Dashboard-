@@ -1,6 +1,6 @@
 import { FiPlus, FiRepeat, FiMoreVertical, FiBell } from "react-icons/fi";
 
-export default function Topbar() {
+export default function Topbar({ searchTerm, onSearchChange }) {
   return (
     <div>
       <div className="flex items-center justify-between px-6 pt-3 pb-3 bg-[#f6f9fb]">
@@ -9,13 +9,15 @@ export default function Topbar() {
           <span className="text-sm text-gray-400 mr-1">Home &gt; </span>
           <span className="text-sm text-blue-800 font-semibold">Dashboard V2</span>
         </div>
-        <div className="flex-1 flex justify-center">
-          <input
-            className="w-[520px] px-4 py-1 rounded-xl border border-[#e6eaf2] bg-white focus:outline-none focus:border-blue-400 shadow-sm placeholder-gray-400 text-base"
-            type="text"
-            placeholder="Search anything..."
-          />
-        </div>
+       <div className="flex-1 flex justify-center">
+        <input
+          type="text"
+          className="w-[550px] px-2 py-2 rounded-xl border border-[#e6eaf2] bg-white focus:outline-none focus:border-white-400 shadow-sm placeholder-gray-400 text-base"
+          placeholder="Search anything..."
+          value={searchTerm}
+          onChange={onSearchChange}
+        />
+      </div>
         <div className="flex items-center gap-4 min-w-max">
           <button className="bg-white border border-[#d1d5db] shadow-sm p-2 rounded-full hover:bg-gray-100">
             <FiBell className="text-gray-500" />
